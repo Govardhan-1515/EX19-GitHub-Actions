@@ -1,0 +1,20 @@
+name: EX19 Docker CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-test-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t ex19-app .
+
+      - name: Test Docker image
+        run: docker run --rm ex19-app nginx -t
