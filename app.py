@@ -1,0 +1,1 @@
+print("EX19 Docker Application Running")
